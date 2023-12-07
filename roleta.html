@@ -1,0 +1,80 @@
+  <!DOCTYPE html>
+  <html lang="en">
+<head>
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Trabalho de BIO</title>
+        <link rel="shortcut icon" href="image-removebg-preview.png" type="image/vnd.microsoft.icon" id="pinterest">
+        <link rel="stylesheet" href="image-removebg-preview.png">
+    </head>
+
+  <body>
+    <a href="http://127.0.0.1:5500/roleta.html"></a>
+
+    <center>
+   
+    <b><i style="color: rgb(255, 255, 255);"><h1 style="background-color:#580101;">»»————» Relações Ecológicas «————««</h1></i></b>
+    
+    <td><img style="display: flex;" src="Acesse o QR code para acessar as respostas das questões.png" height="38%" width="38%" /></td>
+    
+    <h3 style="font-family:Verdana, Geneva, Tahoma, sans-serif"> Gire a Roleta clicando no botão abaixo para jogar!</h3>
+    <style>
+
+      #roulette {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        position: relative;
+        overflow: hidden;
+        background-color: #580101;
+      }
+
+      .number {
+        position: absolute;
+        font-size: 50px;
+        font-weight: inherit;
+        color: #ffc9c9;
+        transform: translate(-50%, -50%);
+      }
+
+      #spinButton {
+        margin-top: 20px;
+        padding: 20px;
+        cursor: pointer;
+      }
+    </style>
+  </body>
+</head>
+  
+
+  <div id="roulette">
+    <div class="number" style="top: 50%; left: 50%;">1</div>
+  </div>
+
+  <button id="spinButton" onclick="spinRoulette()">Spin</button>
+
+  <script>
+    function spinRoulette() {
+      const roulette = document.getElementById('roulette');
+      const number = document.querySelector('.number');
+
+      const randomValue = Math.floor(Math.random() * 6) + 1;
+      const rotateValue = 360 / 6 * (randomValue - 0);
+
+      roulette.style.transition = 'transform 2s ease-out';
+      roulette.style.transform = `rotate(${rotateValue}deg)`;
+
+      // Reset the transition after it completes
+      setTimeout(() => {
+        roulette.style.transition = 'none';
+        roulette.style.transform = 'rotate(0deg)';
+      }, 2000);
+
+      // Display the result number
+      number.textContent = randomValue;
+    }
+    </script>
+  </center>
+  </body>
+  </html>
